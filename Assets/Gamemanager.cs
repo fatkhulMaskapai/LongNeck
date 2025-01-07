@@ -34,14 +34,21 @@ public class Gamemanager : MonoBehaviour
       LevelNumber=PlayerPrefs.GetInt("LevelNum");
       Levels[LevelNumber].SetActive(true);
       Debug.Log("LevelNumber "+LevelNumber);
-      if(LevelNumber==0)
-      {
-        road.SetActive(false);
-      }
-      else
-      {
-        road.SetActive(true);
-      }
+        if(road != null)
+        {
+            if (LevelNumber == 0)
+            {
+                road.SetActive(false);
+            }
+            else
+            {
+                road.SetActive(true);
+            }
+        }
+        else
+        {
+            Debug.LogError("Road Error");
+        }
       
        LevelNumTxt.text="LEVEL "+LevelNumber_D.ToString("");
        LevelFailNumTxt.text=LevelNumber_D.ToString("");
